@@ -1,13 +1,12 @@
-  
-version: '3'
+version: "3.4"
 services:
-  vue-ui:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    container_name: vue-ui
+  frontendvue:
+    container_name: frontendvue
+    image: node:18-alpine
+    working_dir: /var/www/html/app/
+    entrypoint: /bin/bash
+    expose:
+      - 8080
     volumes:
-       - ./frontend:/usr/src/app/frontend
-       - /usr/src/app/frontend/node_modules
+      - ./frontend/:/var/www/html/app
+    tty: true
