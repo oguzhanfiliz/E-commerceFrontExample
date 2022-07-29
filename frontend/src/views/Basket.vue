@@ -80,6 +80,7 @@ const postBasketProduct = () => {
     store.dispatch("basketProductSendApi", sendData).then(
         (response) => {
           toaster.show("Your order has been sent", {type: "success"});
+          router.push('/');
         }
     ).catch(
         (error) => {
