@@ -34,12 +34,12 @@ const mutations = {
                             state.error = "You can't add more than 3 products"
                             setTimeout(() => {
                                 state.error = null;
-
                             }, 3000);
                             breakFunc = true;
                             return
                         } else {
                             state.basketProduct[key].count = state.basketProduct[key].count + 1;
+                            state.basketProduct[key].price = state.basketProduct[key].price * state.basketProduct[key].count ;
                             breakFunc = true;
                         }
                     }

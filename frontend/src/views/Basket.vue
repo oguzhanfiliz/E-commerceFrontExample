@@ -20,10 +20,10 @@
         <div class="product-desc">
           <div class="product-description">
             <p>{{ product.name }}</p>
-            <p>{{ helper.amountTypeFilter(product.currency) }}{{ product.price }}</p>
+            <p style="font-weight: bold">{{ helper.amountTypeFilter(product.currency) }}{{ product.price }}</p>
           </div>
-          <div class="remove-button">
-            <button @click="removeBasketInProduct(key)">REMOVE</button>
+          <div class="remove-button-container">
+            <button class="remove-button" @click="removeBasketInProduct(key)">REMOVE</button>
           </div>
         </div>
       </div>
@@ -129,7 +129,6 @@ input::-webkit-inner-spin-button {
 .basket-container {
   display: flex;
   margin-bottom: 5%;
-  padding: 2% 0;
   border-bottom: 1px solid rgba(192, 181, 181, 0.3);
 }
 
@@ -137,6 +136,7 @@ input::-webkit-inner-spin-button {
   width: 10%;
   margin-left: 15%;
   margin-bottom: 1%;
+
 }
 
 .basket-footer {
@@ -161,11 +161,11 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.error-budge {
-  background-color: red;
-  color: white;
-  padding: 1px;
-}
+/*.error-budge {*/
+/*  background-color: red;*/
+/*  color: white;*/
+/*  padding: 1px;*/
+/*}*/
 
 .place-order-button {
   background-color: #FB641BF4;
@@ -205,14 +205,54 @@ input::-webkit-inner-spin-button {
 .image-container {
   display: flex;
   flex-direction: column;
+  padding: 2%;
+}
+
+.product-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.remove-button {
+  background-color: rgba(252, 249, 249, 0.99);
+  color: rgba(0, 0, 0, 0.79);
+  border: 1px solid rgba(66, 66, 66, 0.1);
+  padding: 10% 20%;
+  font-size: 14px;
+  border-radius: 3px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  margin-left: 1%;
+}
+.product-description{
+  display:flex;
+  flex-direction:column;
+}
+
+.remove-button:hover {
+  background-color: rgba(248, 246, 246, 0.99);
+
+}
+
+.shop-button:hover {
+  background-color: rgba(238, 234, 234, 0.99);
+}
+
+.place-order-button:hover {
+  background-color: rgba(227, 91, 26, 0.96);
+}
+
+.counter-button:hover {
+  background-color: rgba(238, 237, 237, 0.99);
 }
 
 @media only screen and (max-width: 1024px) {
 
   .basket-image {
-    width: 50%;
+    width: 33%;
     margin-left: 2%;
-    margin-bottom:3%;
+    margin-bottom: 3%;
   }
 
   .basket-footer {
@@ -224,16 +264,21 @@ input::-webkit-inner-spin-button {
     padding-bottom: 3%;
     width: 100%;
   }
-  .image-container{
+
+  .image-container {
     max-width: 50%;
   }
-  .place-order-button
-  {
-    padding : 1.7% 10%;
+
+  .place-order-button {
+    padding: 1.7% 10%;
   }
-  .shop-button
+
+  .shop-button {
+    padding: 1.7% 5%;
+  }
+  .product-description
   {
-    padding : 1.7% 5%;
+    margin-left: -400%;
   }
 }
 </style>
