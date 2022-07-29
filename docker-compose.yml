@@ -1,12 +1,29 @@
-version: "3.4"
+version: "3.3"
+
 services:
-  frontendvue:
-    container_name: frontendvue
-    image: node:18-alpine
-    working_dir: /var/www/html/app/
-    entrypoint: /bin/bash
-    expose:
-      - 8080
+
+  portainer:
+    image: portainer/portainer
+    ports:
+      - 9000:9000
+    command: -H unix:///var/run/docker.sock
+    deploy:
+      mode: replicated
+      replicas: 1
     volumes:
-      - ./frontend/:/var/www/html/app
-    tty: true
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./services/portainer/data:/data
+      - '/etc/localtime:/etc/localtime:ro'
+
+  frontvue:
+    image: karapazar/angular-serve-light:0.75
+    volumes:
+      - ./frontend/dist/:/usr/share/nginx/html
+      - '/etc/localtime:/etc/localtime:ro'
+    networks:
+      - frontend-nw
+    deploy:
+      mode: replicated
+      replicas: 1
+networks:
+  frontend-nw:

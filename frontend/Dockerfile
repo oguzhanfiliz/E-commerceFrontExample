@@ -1,11 +1,6 @@
-FROM node:10
+FROM node
 
-WORKDIR /usr/src/app/frontend
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 
-COPY package*.json ./
-
-RUN npm install
-
-EXPOSE 8080
-
-CMD ["npm", "run", "dev"]
+RUN npm install -g @vue/cli
