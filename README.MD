@@ -8,6 +8,6 @@
   npm install
   npm run dev
 ```
-### Ön İzleme
 
-    -   https://hepsi-emlak-case.vercel.app/
+   ### [Önizleme Linki](https://hepsi-emlak-case.vercel.app/)
+    
