@@ -25,7 +25,8 @@ import helper from '@/helper'
 
 const router = useRouter();
 const store = useStore();
-const productData = ref();
+const productData = computed(() => store.getters["getProductList"]);
+
 store.dispatch("productList").then(
     (response) => {
       productData.value = response;
@@ -37,6 +38,7 @@ const addToBasketProduct = async (product) => {
   store.commit("setProductinBasket",product)
   router.push('/basket');
 }
+
 
 </script>
 

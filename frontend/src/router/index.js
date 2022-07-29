@@ -15,7 +15,7 @@ const routes = [
     {
         path: "/product",
         name: "product",
-        component: () => import('@/views/Basket.vue'),
+        component: () => import('@/views/ProductList.vue'),
     },
 ]
 const router = createRouter({
