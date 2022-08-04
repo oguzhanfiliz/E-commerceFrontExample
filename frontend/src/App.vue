@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Menu></Menu>
+      <Menu :menus="menuList"></Menu>
       <router-view />
     </v-main>
   </v-app>
@@ -9,6 +9,13 @@
 
 <script setup>
 import Menu from "@/components/Menu.vue";
+import { ref } from "vue";
+const menuList =ref([
+  {"to" : "/", "title" : "Home"},
+  {"to" : "/", "title" : "Product"},
+  {"to" : "/basket", "title" : "Basket"}
+]);
+
 
 </script>
 

@@ -18,20 +18,11 @@
 </template>
 
 <script setup>
-import {ref, onMounted, onBeforeMount, computed} from "vue";
+import {ref, onMounted, onBeforeMount, computed , defineProps} from "vue";
 import {useStore} from "vuex";
 import {useRouter} from "vue-router";
 import helper from '@/helper'
-
-const router = useRouter();
-const store = useStore();
-const productData = computed(() => store.getters["getProductList"]);
-
-store.dispatch("productList").then(
-    (response) => {
-      productData.value = response;
-    }
-)
+defineProps(['productData']);
 
 const addToBasketProduct = async (product) => {
   product['count']=1;

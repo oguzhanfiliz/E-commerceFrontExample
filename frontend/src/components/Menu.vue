@@ -2,15 +2,15 @@
   <div>
     <nav>
       <ul>
-        <router-link class="li" to="/">Home</router-link>
-        <router-link class="li" to="/" >Product List</router-link>
-       <router-link class="li" to="/basket" >Basket</router-link>
+        <router-link v-for="(menu,key) in menus" :key="key" class="li" :to="menu.to">{{menu.title}}</router-link>
       </ul>
     </nav>
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from "vue";
+ defineProps(['menus']);
 </script>
 
 <style scoped>
