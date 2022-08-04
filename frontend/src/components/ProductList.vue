@@ -22,6 +22,8 @@ import {ref, onMounted, onBeforeMount, computed , defineProps} from "vue";
 import {useStore} from "vuex";
 import {useRouter} from "vue-router";
 import helper from '@/helper'
+const router = useRouter();
+const store = useStore();
 defineProps(['productData']);
 
 const addToBasketProduct = async (product) => {
@@ -29,7 +31,6 @@ const addToBasketProduct = async (product) => {
   store.commit("setProductinBasket",product)
   router.push('/basket');
 }
-
 
 </script>
 
